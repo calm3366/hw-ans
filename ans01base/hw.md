@@ -33,4 +33,4 @@
 4. 
 ![!\[Alt text\](<img/!\[Alt text\](<img/Снимок экрана 2023-10-25 в 14.53.08.png>)>)](<img/Снимок экрана 2023-10-25 в 14.53.08.png>)
 
-
+5. [playbook/script.sh](playbook/script.sh) 
