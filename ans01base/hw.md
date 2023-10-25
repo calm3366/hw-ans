@@ -20,7 +20,7 @@
 ![!\[Alt text\](<img/!\[Alt text\](<img/Снимок экрана 2023-10-25 в 14.20.27.png>)>)](<img/Снимок экрана 2023-10-25 в 14.20.27.png>)
 
 
-12. [playbook](playbook) 
+12. [playbook/site.yml](playbook/site.yml) 
 
 
 
