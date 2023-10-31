@@ -19,8 +19,9 @@
   - создает домашнюю директорию на хостах
   - разархивирует архив в директорию
   - добавляет переменную окружения для Vector
-  - создает директорию для шаблонов /templates
-  - копирует в него файл templates/template_vector.j2
+  - создает директорию для конфигурации "/etc/vector"
+  - копирует в него файл templates/vector.yaml
+  - при обновлении файла конфигурации отрабатывает HANDLER и перезаписывает конфигурацию
 
 
  
@@ -59,6 +60,6 @@
   - [playbook/templates/elk.sh.j2](playbook/templates/elk.sh.j2)
   - [playbook/templates/vector.sh.j2](playbook/templates/vector.sh.j2)
 
-Также присутсвует шаблон [playbook/templates/template_vector.j2](playbook/templates/template_vector.j2) для дальнейшего заполнения конфигурирации Vector.
+Также присутсвует шаблон [playbook/templates/vector.yaml](playbook/templates/vector.yaml) для дальнейшего заполнения конфигурирации Vector.
 
 
