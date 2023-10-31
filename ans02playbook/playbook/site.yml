@@ -74,6 +74,10 @@
       tags: elastic
 - name: Install Vector
   hosts: all
+  handlers:
+    - name: Restart service Vector after config
+      ansible.builtin.shell:
+        cmd: vector --config /etc/vector/vector.yaml
   tasks:
     - name: Upload Vector
       ansible.builtin.get_url:
@@ -99,6 +103,7 @@
         src: "/tmp/vector-{{ vector_version }}-x86_64-unknown-linux-gnu.tar.gz"
         dest: "{{ vector_home }}"
         extra_opts: [--strip-components=1]
+        creates: "{{ vector_home }}/bin/vector"
       tags:
         - vector
     - name: Set environment Vector
@@ -111,12 +116,13 @@
     - name: Create template directrory for Vector
       ansible.builtin.file:
         state: directory
-        path: "{{ vector_home }}/templates"
+        path: "/etc/vector"
         mode: "0755"
       tags: vector
     - name: Copy template file for Vector
       ansible.builtin.copy:
-        src: "templates/template_vector.j2"
-        dest: "{{ vector_home }}/templates/template_vector.j2"
+        src: templates/vector.yaml
+        dest: "/etc/vector/vector.yaml"
         mode: "0755"
       tags: vector
+      notify: Restart service Vector after config
