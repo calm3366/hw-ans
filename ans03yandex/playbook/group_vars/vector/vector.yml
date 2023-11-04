@@ -1,0 +1,5 @@
+---
+#java_jdk_version: 11.0.11
+#java_oracle_jdk_package: "~/Downloads/jdk-{{ java_jdk_version }}_linux-x64_bin.tar.gz"
+vector_version: 0.33.0
+vector_home: "/opt/vector/{{ vector_version }}"
