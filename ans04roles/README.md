@@ -9,6 +9,8 @@
 
 ### Порядок работы playbook:
 
+[playbook/play.yml](playbook/play.yml) 
+
 #### Vector
   - считывание переменных для авторизации на хостах
     - "ter_vars/ssh_login.yml"
