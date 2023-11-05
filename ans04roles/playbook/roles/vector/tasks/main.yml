@@ -1,0 +1,61 @@
+---
+- name: Upload Vector
+  ansible.builtin.get_url:
+    url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-x86_64-unknown-linux-gnu.tar.gz"
+    dest: "/tmp/vector-{{ vector_version }}-x86_64-unknown-linux-gnu.tar.gz"
+    mode: "0755"
+    timeout: 60
+    force: true
+    validate_certs: false
+  register: get_vector
+  until: get_vector is succeeded
+- name: Create directrory for Vector
+  become: true
+  ansible.builtin.file:
+    state: directory
+    path: "{{ vector_home }}/vector"
+    mode: "0755"
+- name: Extract Vector in the installation directory
+  become: true
+  ansible.builtin.unarchive:
+    copy: false
+    src: "/tmp/vector-{{ vector_version }}-x86_64-unknown-linux-gnu.tar.gz"
+    dest: "{{ vector_home }}/vector"
+    extra_opts: [--strip-components=2]
+    creates: "{{ vector_home }}/vector/bin"
+- name: Set environment Vector
+  become: true
+  ansible.builtin.template:
+    src: templates/vector.sh.j2
+    dest: /etc/profile.d/vector.sh
+    mode: "0755"
+- name: Create directrory /etc/vector for Vector
+  become: true
+  ansible.builtin.file:
+    state: directory
+    path: /etc/vector
+    mode: "0755"
+- name: Create directrory /var/lib/vector for Vector
+  become: true
+  ansible.builtin.file:
+    state: directory
+    path: /var/lib/vector
+    mode: "0777"
+- name: Copy template file for Vector
+  become: true
+  ansible.builtin.copy:
+    src: templates/vector.yaml
+    dest: "/etc/vector/vector.yaml"
+    mode: "0755"
+  notify: Restart service Vector
+- name: Copy vector.service for systemd
+  become: true
+  ansible.builtin.template:
+    src: templates/vector.service.j2
+    dest: "/etc/systemd/system/vector.service"
+    mode: "0755"
+- name: Start service Vector
+  ansible.builtin.systemd:
+    name: vector
+    state: started
+  become: true

@@ -1,0 +1,18 @@
+# Warning: This file is Ansible Managed, manual changes will be overwritten on next playbook run.
+[Unit]
+Description=Vector
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+ExecStart={{ vector_home }}/vector/bin/vector
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=no
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=vector
+
+[Install]
+WantedBy=multi-user.target

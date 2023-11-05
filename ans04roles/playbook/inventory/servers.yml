@@ -1,0 +1,16 @@
+---
+clickhouse:
+  hosts:
+    clickhouse:
+      ansible_host: "{{ clickhouse_ip }}"
+      ansible_user: "{{ ssh_login }}"
+lighthouse:
+  hosts:
+    lighthouse:
+      ansible_host: "{{ lighthouse_ip }}"
+      ansible_user: "{{ ssh_login }}"
+vector:
+  hosts:
+    vector:
+      ansible_host: "{{ vector_ip }}"
+      ansible_user: "{{ ssh_login }}"
