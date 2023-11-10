@@ -1,0 +1,2 @@
+---
+vector_home: "/opt/vector/{{ vector_version }}"

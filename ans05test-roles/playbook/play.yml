@@ -1,0 +1,25 @@
+---
+- name: Install Vector
+  hosts: vector
+  tags: vector
+  vars_files:
+    - "ter_vars/ssh_login.yml"
+    - "ter_vars/vector_ip.yml"
+  roles: 
+    - vector
+- name: Install Clickhouse
+  tags: clickhouse
+  hosts: clickhouse
+  vars_files:
+    - "ter_vars/ssh_login.yml"
+    - "ter_vars/clickhouse_ip.yml"
+  roles: 
+    - clickhouse
+- name: Install Lighthouse
+  tags: lighthouse
+  hosts: lighthouse
+  vars_files:
+    - "ter_vars/ssh_login.yml"
+    - "ter_vars/lighthouse_ip.yml"
+  roles: 
+    - lighthouse

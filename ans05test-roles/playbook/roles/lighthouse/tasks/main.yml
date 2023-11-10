@@ -1,0 +1,28 @@
+---
+- name: Install unzip
+  become: true
+  ansible.builtin.apt:
+    name: unzip
+- name: Extract all ZIP files from git Lighthouse
+  become: true
+  ansible.builtin.git:
+    repo: "https://github.com/VKCOM/lighthouse.git"
+    version: master
+    dest: /opt
+- name: Install nginx
+  become: true
+  ansible.builtin.apt:
+    name: nginx
+- name: Template index.html lighthouse
+  become: true
+  ansible.builtin.template:
+    src: templates/light_index.j2
+    dest: /etc/nginx/sites-available/default
+    mode: "0755"
+  notify: Restart service nginx
+- name: Start nginx demon
+  become: true
+  ansible.builtin.systemd:
+    name: nginx
+    daemon_reload: true
+    state: started

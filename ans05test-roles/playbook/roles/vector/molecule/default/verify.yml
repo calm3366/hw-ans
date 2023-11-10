@@ -1,0 +1,18 @@
+---
+- name: verify
+  hosts: all
+  gather_facts: false
+  vars_files:
+    - '../../defaults/main.yml'
+    - '../../vars/main.yml'
+  tasks:
+  - name: Validate config vector
+    ansible.builtin.shell: export PATH=$PATH:{{vector_home}}/vector/bin && vector validate /etc/vector/vector.yaml
+    register: result
+    changed_when: result.rc != 0
+    failed_when: False
+  - name: Verify exec vector
+    ansible.builtin.shell: export PATH=$PATH:{{vector_home}}/vector/bin && vector --version
+    register: result2
+    changed_when: result2.rc != 0
+    failed_when: False
