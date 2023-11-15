@@ -2,10 +2,10 @@
 ### molecule
 [roles/clickhouse](playbook/roles/clickhouse) 
 
-1. Ошибка - не пойму что нужно исправить
+1. 
 
 
-![!\[Alt text\](<img/!\[Alt text\](<img/ошибка 1.png>)>)](<img/ошибка 1.png>)
+![!\[Alt text\](<img/!\[Alt text\](<img/1.png>)>)](<img/1.png>)
 
 [roles/vector](playbook/roles/vector) 
 
@@ -24,31 +24,25 @@
 
 
 ### tox
-[vector/molecule/tox](playbook/roles/vector/molecule/tox/) 
-
-3. 
-![!\[Alt text\](<img/!\[Alt text\](<img/tox3.png>)>)](<img/tox3.png>)
-
-4. 
-![!\[Alt text\](<img/!\[Alt text\](<img/tox4.png>)>)](<img/tox4.png>)
+[vector/molecule](playbook/roles/vector/molecule/default/) 
 
 [tox.ini](playbook/roles/vector/tox.ini) 
 
-6. Ошибка (ansible был переустановлен через pip3)
+3. 
+![!\[Alt text\](<img/!\[Alt text\](<img/tox33.png>)>)](<img/tox33.png>)
 
-![!\[Alt text\](<img/!\[Alt text\](<img/tox 6.png>)>)](<img/tox 6.png>)
+6. tox в контейнере после изменений molecule driver на podman:
+
+![!\[Alt text\](<img/!\[Alt text\](<img/00.png>)>)](<img/00.png>)
+
+![!\[Alt text\](<img/!\[Alt text\](<img/01.png>)>)](<img/01.png>)
+
+![!\[Alt text\](<img/!\[Alt text\](<img/02.png>)>)](<img/02.png>)
+
+![!\[Alt text\](<img/!\[Alt text\](<img/03.png>)>)](<img/03.png>)
 
 
 
 
-Если выполнить
-```
-pip install -r tox-requirements
-```
-то происходит следующее:
-![!\[Alt text\](<img/!\[Alt text\](<img/pip install -r tox-requirements.png>)>)](<img/pip install -r tox-requirements.png>)
-
-
-![!\[Alt text\](<img/!\[Alt text\](<img/pip.png>)>)](<img/pip.png>)
 
 

@@ -53,12 +53,12 @@ variable "ssh_login" {
 
 variable "count_vm" {
   type        = number
-  default     = 3
+  default     = 1
 }
 
 variable "vm_name" {
   type        = list(string)
-  default     = ["clickhouse","vector","lighthouse"]
+  default     = ["test"]
 }
 
 variable "vms_resources" {

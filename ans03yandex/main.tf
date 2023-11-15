@@ -54,17 +54,21 @@ resource "local_file" "user_vm" {
     filename = "playbook/group_vars/all/ssh_login.yml"
 }
 
-resource "local_file" "clickhouse_ip" {
+resource "local_file" "vm1_ip" {
     content  = "clickhouse_ip: ${yandex_compute_instance.vm[0].network_interface[0].nat_ip_address}"
-    filename = "playbook/group_vars/clickhouse/clickhouse_ip.yml"
+    filename = "playbook/group_vars/clickhouse/vm1_ip.yml"
 }
 
-resource "local_file" "vector_ip" {
-    content  = "vector_ip: ${yandex_compute_instance.vm[1].network_interface[0].nat_ip_address}"
-    filename = "playbook/group_vars/vector/vector_ip.yml"
-}
+# resource "local_file" "vector_ip" {
+#     content  = "vector_ip: ${yandex_compute_instance.vm[1].network_interface[0].nat_ip_address}"
+#     filename = "playbook/group_vars/vector/vector_ip.yml"
+# }
 
-resource "local_file" "lighthouse_ip" {
-    content  = "lighthouse_ip: ${yandex_compute_instance.vm[2].network_interface[0].nat_ip_address}"
-    filename = "playbook/group_vars/lighthouse/lighthouse_ip.yml"
+# resource "local_file" "lighthouse_ip" {
+#     content  = "lighthouse_ip: ${yandex_compute_instance.vm[2].network_interface[0].nat_ip_address}"
+#     filename = "playbook/group_vars/lighthouse/lighthouse_ip.yml"
+# }
+
+output "vm1_ip" {
+  value = "${yandex_compute_instance.vm[0].network_interface[0].nat_ip_address}"
 }
