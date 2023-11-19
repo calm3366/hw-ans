@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  tasks: 
+    - block:
+        - ansible.builtin.debug:
+            msg: One task
+        - ansible.builtin.fail:
+            msg: I failed
+      rescue:
+        - ansible.builtin.debug:
+            msg: Rescue it

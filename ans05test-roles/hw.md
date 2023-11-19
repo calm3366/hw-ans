@@ -33,16 +33,22 @@
 
 6. tox в контейнере после изменений molecule driver на podman:
 
-![!\[Alt text\](<img/!\[Alt text\](<img/00.png>)>)](<img/00.png>)
 
-![!\[Alt text\](<img/!\[Alt text\](<img/01.png>)>)](<img/01.png>)
+тест молекулы проходит
 
-![!\[Alt text\](<img/!\[Alt text\](<img/02.png>)>)](<img/02.png>)
-
-![!\[Alt text\](<img/!\[Alt text\](<img/03.png>)>)](<img/03.png>)
+![!\[Alt text\](<img/!\[Alt text\](<img/000.png>)>)](<img/000.png>)
 
 
+но токс отваливается:
+
+![!\[Alt text\](<img/!\[Alt text\](<img/001.png>)>)](<img/001.png>)
+
+пробовал ставить ansible==4.3 ansible-core==2.11.12 как в вебинаре разбирал Алексей
+
+также пробовал ansible==5.0.1 ansible-core==2.12.0
+
+![!\[Alt text\](<img/!\[Alt text\](<img/002.png>)>)](<img/002.png>)
 
 
-
+ошибка та же
 
