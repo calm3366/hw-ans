@@ -1,3 +1,5 @@
+Ссылка на домашнее задание - [github](https://github.com/netology-code/mnt-homeworks/tree/MNT-video/08-ansible-05-testing)
+
 ## Основная часть
 ### molecule
 [roles/clickhouse](playbook/roles/clickhouse) 
