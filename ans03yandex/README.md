@@ -1,3 +1,5 @@
+Ссылка на домашнее задание - [github](https://github.com/netology-code/mnt-homeworks/tree/MNT-video/08-ansible-03-yandex)
+
 ## Данный проект создает и настраивает ПО на хостах Clickhouse, Vector и Lighthouse
 Хосты создаются с помощью terraform в яндекс-облаке. Для изменения править файл [playbook/inventory/servers.yml](playbook/inventory/servers.yml) 
 
