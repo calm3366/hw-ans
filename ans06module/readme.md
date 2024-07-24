@@ -1,3 +1,5 @@
+Ссылка на домашнее задание - [github](https://github.com/netology-code/mnt-homeworks/tree/MNT-video/08-ansible-06-module)
+
 ## Основная часть
 collection - [my_own_namespace/yandex_cloud_elk](my_own_namespace/yandex_cloud_elk) 
 
